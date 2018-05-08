@@ -1,5 +1,5 @@
 W3C protocol compatibility status
-=
+==
 
 |	Method	|	URL	|	Command	|	geckodriver	|	Chromedriver //	Bug	|	IEDriver //	Availability, Priority	|	Method	|	URI template	|	Safaridriver	|	Availability	|
 |	---	|	---	|	---	|	---	|	---		|	---		|	---	|	---	|	---	|	---	|
@@ -87,16 +87,16 @@ W3C protocol compatibility status
 |		|		|		|		|			|			|	GET	|	/session/:sessionId/element/:elementId	|		|		|
 
 
- Documentation
- ==
+Documentation
+===
 
  * W3C protocol: https://www.w3.org/TR/webdriver/
  * JsonWire protocol: https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol
  * JsonWireProtocol to W3C comparision table: https://github.com/facebook/php-webdriver/wiki/JsonWireProtocol-vs.-W3C-WebDriver
 
- | driver | W3C compatibility status |
- | ---    | --- |
- | [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/home) | https://chromium.googlesource.com/chromium/src/+/master/docs/chromedriver_status.md |
- | [geckodriver](https://github.com/mozilla/geckodriver) | https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver/status |
- | [Microsoft Edge / IE](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) | https://docs.microsoft.com/en-us/microsoft-edge/webdriver#w3c-webdriver-specification-support |
- | [Safari](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari) | https://developer.apple.com/documentation/webkit/macos_webdriver_commands_for_safari |
+| driver | W3C compatibility status |
+| ---    | --- |
+| [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/home) | https://chromium.googlesource.com/chromium/src/+/master/docs/chromedriver_status.md |
+| [geckodriver](https://github.com/mozilla/geckodriver) | https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver/status |
+| [Microsoft Edge / IE](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) | https://docs.microsoft.com/en-us/microsoft-edge/webdriver#w3c-webdriver-specification-support |
+| [Safari](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari) | https://developer.apple.com/documentation/webkit/macos_webdriver_commands_for_safari |

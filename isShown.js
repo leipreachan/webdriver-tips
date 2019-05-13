@@ -1,4 +1,6 @@
 // isShown atom, extracted from webdriver with google closure dependencies removed
+// see: https://w3c.github.io/webdriver/#element-displayedness
+// see: https://github.com/SeleniumHQ/selenium/blob/e09e28f016c9f53196cf68d6f71991c5af4a35d4/javascript/atoms/dom.js#L437
 
 const isShown => (elem) {
         getDocumentScroll = function(doc) {
@@ -295,3 +297,7 @@ const isShown => (elem) {
         };
         return isElementVisible(elem);
     }
+
+// Example:
+
+isShown($('body'));

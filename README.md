@@ -1,4 +1,4 @@
-W3C protocol compatibility status
+W3C protocol compatibility status (outdated)
 ==
 
 |	Method	|	URL	|	Command	|	geckodriver	|	Chromedriver //	Bug	|	IEDriver //	Availability, Priority	|

@@ -3,7 +3,7 @@
 // see: https://github.com/SeleniumHQ/selenium/blob/e09e28f016c9f53196cf68d6f71991c5af4a35d4/javascript/atoms/dom.js#L437
 
 const isShown => (elem) {
-        getDocumentScroll = function(doc) {
+        getDocumentScroll = function (doc) {
             let el = doc.scrollingElement;
             return {"x": window.pageXOffset || el.scrollLeft, "y": window.pageYOffset || el.scrollTop};
         };
@@ -173,24 +173,24 @@ const isShown => (elem) {
             return ascendToElement(elem.parentNode, parentTagName);
         };
 
-        positiveSize = (elem, style) => {
+        positiveSize = (elem) => {
             let rect = elem.getBoundingClientRect();
             if (!isElement(elem)) return false;
             if (rect.height > 0 || rect.width > 0) return true;
 
             // A vertical or horizontal SVG Path element will report zero width or
             // height but is "shown" if it has a positive stroke-width.
-            if (elem.tagName === 'PATH' && (rect.height > 0 || rect.width >0)) {
+            if (elem.tagName === 'PATH' && (rect.height > 0 || rect.width > 0)) {
                 let strokeWidth = style.strokeWidth;
                 return !!strokeWidth && (parseInt(strokeWidth, 10) > 0);
             }
             // Zero-sized elements should still be considered to have positive size
             // if they have a child element or text node with positive size, unless
             // the element has an 'overflow' style of 'hidden'.
-            return style.overflow !== 'hidden' &&
+            return getEffectiveStyle(elem, 'overflow') !== 'hidden' &&
                 Array.prototype.slice.call(elem.childNodes).some((item) => {
                     return item.nodeType === 'TEXT' ||
-                        (isElement(item) && positiveSize(elem))
+                        (isElement(item) && positiveSize(item))
                 });
         };
 
@@ -214,7 +214,7 @@ const isShown => (elem) {
                 {x: left + width / 4, y: top + height / 4},
                 {x: left + 3 * width / 4, y: top + height / 4},
                 {x: left + width / 4, y: top + 3 * height / 4},
-                {x: left + 3 * width / 4,y: top + 3* height / 2},
+                {x: left + 3 * width / 4, y: top + 3 * height / 2},
                 {x: left + width / 4, y: top + height / 2},
                 {x: left + 3 * width / 4, y: top + height / 2},
                 {x: left + width / 2, y: top + height / 4},
@@ -236,7 +236,9 @@ const isShown => (elem) {
                     }
                 } while (pointContainer && (pointContainer = pointContainer.parentNode));
             };
-            points.forEach((item)=> {checkPointVisibility(item)});
+            points.forEach((item) => {
+                checkPointVisibility(item)
+            });
             return nodeState;
         };
 
@@ -283,7 +285,7 @@ const isShown => (elem) {
             // Any transparent element is not shown.
             if (considerOpacity && style.opacity < 0.1) return false;
             // Any element without positive size dimensions is not shown.
-            if (!positiveSize(elem, style)) return false;
+            if (!positiveSize(elem)) return false;
 
             // Elements that are hidden by overflow are not shown.
             if (hiddenByOverflow(elem, style)) {
